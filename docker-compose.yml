@@ -2,8 +2,7 @@ version: '2'
 
 services:
   web:
-    build: ./
-    image: rails5_web
+    image: bovoid/rails5_web
     volumes:
       - .:/blog
     volumes_from:
@@ -17,15 +16,11 @@ services:
 
   db:
     image: kiasaki/alpine-postgres
-    ports:
-      - '5433:5433'
     environment:
       POSTGRES_PASSWORD: 'postgres'
 
-
-
   bundle:
-    image: rails5_web
+    image: bovoid/rails5_web
     command: echo 'Serving bundle'
     volumes:
       - /bundle

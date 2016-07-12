@@ -2,7 +2,6 @@ default: &default
   adapter: postgresql
   pool: 5
   host: db
-  port: 5433
   username: postgres
   password: postgres
   timeout: 5000
