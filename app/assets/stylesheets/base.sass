@@ -1,0 +1,96 @@
+@import 'variables'
+@import 'animations'
+@import 'mixins'
+@import 'responsive'
+
+.aboutme__photo
+  margin-right: 2em
+  background-image: url("https://scontent-arn2-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11217183_10207352844358245_7040585877676604693_n.jpg?oh=d3ed2442d86f026a0212ab1cba48d059&oe=5669547E")
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: 50%
+  margin: auto
+  border-radius: 50%
+  width: 140px
+  animation: crazifier 1s 0s infinite ease-in-out
+  height: 140px
+  transition: all 0.4s
+  &:hover
+    animation: none
+
+html, body, input, textarea, button, code
+  color: #444
+  appearance: none
+  font-family: 'Monoid'
+
+input:autofill
+  background-color: $yellow
+
+code
+  font-size: 0.8em
+  word-wrap: break-word
+
+input[type='submit']
+  @include default-button()
+
+button.button.logout-button
+  float: right
+  @include default-button()
+
+.post-form
+  .post-form__header
+    margin: 0 0 1em 0
+  .post-form__preview
+    @include input-border(2px, gray)
+    padding: 1em
+    margin-bottom: 2em
+
+a
+  text-decoration: none
+  font-weight: normal
+  color: gray
+  &:hover
+    animation: blink 7s 0s infinite
+  &.active
+    animation: blink 2s 0s infinite
+
+textarea, input
+  @include input-border(2px, gray)
+  resize: none
+  width: 100%
+  margin: auto
+
+
+@font-face
+  font-family: 'Monoid'
+  src: url('fonts/Monoid-Regular.ttf')
+
+.container
+  margin: auto
+  width: 80%
+
+.posts-index
+  .posts-index__header
+    text-align: center
+
+
+.post__content
+  p
+    word-wrap:break-word
+  img
+    width: 100%
+
+.post
+  margin: 0 0 1em 0
+  .post__header
+    margin-left: 1em
+
+nav.navigation
+  padding: 1em
+  display: flex
+  flex-flow: row nowrap
+  border-bottom: 2px dashed gray
+  div.navigation__item
+    display: inline-block
+    text-align: center
+    padding: 1em

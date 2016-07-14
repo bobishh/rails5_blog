@@ -1,0 +1,31 @@
+@import 'variables'
+
+body
+  transition: all 0.4s
+
+@keyframes blink
+  0%
+    color: $purple
+  25%
+    color: $green
+  50%
+    color: $yellow
+  100%
+    color: $blue
+
+
+@keyframes bgblink
+  0%
+    background-color: $purple
+  25%
+    background-color: $green
+  50%
+    background-color: $yellow
+  100%
+    background-color: $blue
+
+
+@keyframes crazifier
+  @for $i from 0 through 10
+    #{10%*$i}
+      filter: hue-rotate(($i*36deg))
