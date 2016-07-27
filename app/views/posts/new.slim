@@ -1,1 +1,5 @@
+h2 Hello #{current_user.email}
+h3
+  | Time now is
+  = react_component 'Clock', prerender: true
 = render 'form', post: @post

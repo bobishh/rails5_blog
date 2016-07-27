@@ -11,15 +11,18 @@ $data-width: 20vw
   &__link
     text-decoration: none
   &--in-list
-    border-left: 1px solid $black
+    border-left: 2px dashed gray
     flex-flow: row nowrap
   &__content
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
     height: auto
+    margin-bottom: 3vh
     &--preview
       width: $content-preview-width
+  &__timestamp
+    color: gray
   &__data
     width: $data-width
     height: auto

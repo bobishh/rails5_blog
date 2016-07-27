@@ -8,7 +8,6 @@ RSpec.feature 'Posts scenarions', type: :feature do
   end
 
   scenario 'get posts index' do
-    expect(page).to have_text('Listing posts')
     expect(page).to have_text(posts[0].title)
   end
 
