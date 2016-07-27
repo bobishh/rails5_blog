@@ -1,7 +1,0 @@
-<h1> Listing posts </h1>
-<ul>
-  <% @posts.each do |post| %>
-    <%= post.title %>
-    <%= post.created_at.strftime '%d.%m.%Y %hh:%mm' %>
-  <% end %>
-</ul>

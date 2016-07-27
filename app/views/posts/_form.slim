@@ -1,0 +1,4 @@
+= form_for post, class: 'post-form' do |f|
+  .post-form__input = f.text_field :title, placeholder: 'Post title', class: 'post-form__text-field'
+  .post-form__input = f.text_area :content, placeholder: 'Post content', class: 'post-form__textarea'
+  .post-form__submit-button = f.submit 'Create'

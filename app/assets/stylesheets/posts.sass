@@ -1,0 +1,43 @@
+@import 'variables'
+
+$content-preview-width: 30vw
+$data-width: 20vw
+
+.post
+  display: flex
+  padding: $default-padding
+  flex-flow: column nowrap
+  justify-content: left
+  &__link
+    text-decoration: none
+  &--in-list
+    border-left: 1px solid $black
+    flex-flow: row nowrap
+  &__content
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+    height: auto
+    &--preview
+      width: $content-preview-width
+  &__data
+    width: $data-width
+    height: auto
+    padding: $item-padding
+    &--inline
+      display: inline-block
+
+.posts__list
+  list-style-type: none
+
+.posts__item
+  padding: $default-padding
+  &--row
+    width: 100%
+
+
+.post-form
+  &__input
+    padding: $item-padding
+  &__textarea
+    height: 20vh
