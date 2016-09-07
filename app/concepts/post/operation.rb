@@ -16,4 +16,12 @@ class Post < ApplicationRecord
       validate(params[:post], &:save)
     end
   end
+
+  class Update < Create; end
+
+  # for presenting post
+  class Show < Trailblazer::Operation
+    include Model
+    model Post, :find
+  end
 end

@@ -1,13 +1,15 @@
 class Post < ApplicationRecord
   # individual post cell
   class Cell < Cell::Concept
+    property :title
+    property :content
+    property :created_at
+
     def show
       render
     end
 
-    def created_at
-      l super
-    end
+    private
 
     def back_link
       link_to '< see all', posts_path, class: 'post__link'

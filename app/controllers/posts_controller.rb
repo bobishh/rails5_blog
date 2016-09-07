@@ -1,10 +1,9 @@
 # CRUD Posts controller
 class PostsController < ApplicationController
-  before_action :fetch_post, only: [:show, :edit, :update]
   before_action :require_login, only: [:edit, :new]
 
   def new
-    @post = Post.new
+    form Post::Create
   end
 
   def index
@@ -12,36 +11,27 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = PostPresenter.decorate(@post)
+    binding.pry
+    present Post::Show
   end
 
   def update
-    if @post.update(@post.params)
-      redirect_to @post
-    else
-      render 'edit', post: @post
+    run Post::Update do |op|
+      redirect_to op.model
     end
+
+    form Post::Create
   end
 
   def create
-    @post = Post.create(post_params)
-    if @post.persisted?
-      redirect_to @post
-    else
-      render 'new', post: @post
+    run Post::Create do |op|
+      redirect_to op.model
     end
+
+    form Post::Create
   end
 
   def edit
-  end
-
-  private
-
-  def post_params
-    params.require(:post).permit!
-  end
-
-  def fetch_post
-    @post = Post.find(params[:id])
+    form Post::Update
   end
 end
