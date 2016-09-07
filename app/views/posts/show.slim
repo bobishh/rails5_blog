@@ -1,8 +1,8 @@
 .post
-  h1.post__title = @post.title
-  .post__content = @post.content
+  h1.post__title = title
+  .post__content = content
   .post__timestamp
-    | Created 
-    = @post.created_at_timestamp
+    | Created
+    = created_at
   br
-  = link_to '< see all', posts_path, class: 'post__link'
+  = back_link
