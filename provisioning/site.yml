@@ -1,0 +1,4 @@
+- name: Provision web servers
+  hosts: web
+  roles:
+    - web

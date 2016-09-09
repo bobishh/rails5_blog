@@ -17,9 +17,12 @@ class Post < ApplicationRecord
     end
   end
 
-  class Update < Create; end
+  # for updating post
+  class Update < Create
+    action :find
+  end
 
-  # for presenting post
+  # for presenting single post post
   class Show < Trailblazer::Operation
     include Model
     model Post, :find

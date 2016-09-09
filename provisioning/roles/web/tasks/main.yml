@@ -1,0 +1,9 @@
+- name: Git pull repo
+  git:
+    repo: 'git://github.com/bobishh/rails5_blog'
+    update: yes
+    version: master
+    dest: '/home/bovoid/projects/rails5_blog'
+
+- name: Docker compose up (restart)
+  shell: 'docker-compose up -d'

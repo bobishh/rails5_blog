@@ -1,8 +1,7 @@
 .post
   h1.post__title = title
-  .post__content = content
+  .post__content == html_content
   .post__timestamp
-    | Created
     = created_at
   br
   = back_link

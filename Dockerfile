@@ -1,13 +1,14 @@
 FROM ruby:2.3.1-alpine
 
-ENV BUILD_PACKAGES="curl-dev ruby-dev build-base" \
-    DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev sqlite-dev postgresql-dev mysql-dev" \
+ENV BUILD_PACKAGES="curl-dev ruby-dev build-base git" \
+    DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev postgresql-dev" \
     RUBY_PACKAGES="ruby ruby-io-console ruby-json yaml nodejs"
 
 RUN apk --update --upgrade add $BUILD_PACKAGES $RUBY_PACKAGES $DEV_PACKAGES && \
   gem install -N bundler
 
 ENV APP_HOME /blog
+ENV RAILS_ENV production
 
 RUN mkdir $APP_HOME
 
@@ -19,8 +20,10 @@ ENV BUNDLE_GEMFILE=$APP_HOME/Gemfile \
   BUNDLE_JOBS=2 \
   BUNDLE_PATH=/bundle
 
-RUN bundle install
-    
+RUN bundle install --retry 5
+
 ADD . $APP_HOME
+
+RUN bundle exec rake assets:precompile
 
 EXPOSE 4242

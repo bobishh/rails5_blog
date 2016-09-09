@@ -6,12 +6,7 @@ class PostsController < ApplicationController
     form Post::Create
   end
 
-  def index
-    @posts = PostPresenter.decorate_all(Post.all)
-  end
-
   def show
-    binding.pry
     present Post::Show
   end
 
