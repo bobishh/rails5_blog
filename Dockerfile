@@ -14,7 +14,9 @@ RUN mkdir $APP_HOME
 
 WORKDIR $APP_HOME
 
-ADD Gemfile $APP_HOME/
+ADD Gemfile* $APP_HOME/
+
+VOLUME $APP_HOME/public
 
 ENV BUNDLE_GEMFILE=$APP_HOME/Gemfile \
   BUNDLE_JOBS=2 \
@@ -23,7 +25,5 @@ ENV BUNDLE_GEMFILE=$APP_HOME/Gemfile \
 RUN bundle install --retry 5
 
 ADD . $APP_HOME
-
-RUN bundle exec rake assets:precompile
 
 EXPOSE 4242

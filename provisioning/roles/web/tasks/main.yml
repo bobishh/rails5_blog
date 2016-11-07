@@ -5,5 +5,27 @@
     version: master
     dest: '{{ project_home }}'
 
+- name: Docker build web image
+  shell: 'cd {{ project_home }} && docker build .' 
+
+- name: Docker compose up assets precompile
+  shell: 'cd {{ project_home }} && docker-compose run web bundle exec rails assets:precompile'
+
 - name: Docker compose up (restart)
-  shell: 'cd {{ project_home }} && docker-compose up -d --build --force-recreate'
+  shell: 'cd {{ project_home }} && docker-compose up -d --force-recreate'
+
+- name: Set up database if none
+  shell: 'cd {{ project_home }} && docker-compose run web bundle exec rails db:create'
+  ignore_errors: yes
+
+- name: Run migrations
+  shell: 'cd {{ project_home }} && docker-compose run web bundle exec rails db:migrate'
+
+- name: Check if web container listens on port
+  wait_for: host=0.0.0.0 port=4242 delay=3
+
+- name: Check if nginx replies
+  uri: 
+    url: 'http://localhost'
+    method: 'GET'
+    status: 200

@@ -7,22 +7,36 @@ services:
       - .:/blog
     volumes_from:
       - bundle
+      - public
     command: bin/rails server -p 4242 -b 0.0.0.0
     ports:
       - '4242:4242'
     links:
       - db
       - bundle
+      - public
 
   db:
     image: kiasaki/alpine-postgres
     environment:
       POSTGRES_PASSWORD: 'postgres'
-    volumes:
-      - ./db_data:/var/lib/postgresql/data:rw
+    volumes_from:
+      - db_data
 
+# data containers
   bundle:
-    image: bovoid/rails5_web
+    image: busybox
     command: echo 'Serving bundle'
     volumes:
       - /bundle
+
+  public:
+    image: busybox
+    command: echo 'Serving public'
+    volumes:
+      - /public
+
+  db_data:
+    image: busybox
+    volumes:
+      - ../db_data/:/var/lib/postgresql/data:rw
