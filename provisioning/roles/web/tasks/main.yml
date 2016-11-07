@@ -1,9 +1,9 @@
 - name: Git pull repo
   git:
-    repo: 'git://github.com/bobishh/rails5_blog'
+    repo: '{{ project_repo }}'
     update: yes
     version: master
-    dest: '/home/bovoid/projects/rails5_blog'
+    dest: '{{ project_home }}'
 
 - name: Docker compose up (restart)
-  shell: 'docker-compose up -d'
+  shell: 'cd {{ project_home }} && docker-compose up -d --build --force-recreate'

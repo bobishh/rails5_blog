@@ -1,0 +1,5 @@
+---
+project_name: rails5_blog
+project_repo: 'git://github.com/bobishh/{{ project_name }}'
+user: bovoid
+project_home: '/home/{{ user }}/projects/{{ project_name }}'
