@@ -1,47 +1,53 @@
 @import 'variables'
-
 $content-preview-width: 30vw
-$data-width: 40vw
 
 .post
   display: flex
-  padding: $default-padding
+  padding: 5vw
+  width: 85vw
+  top: $top-offset
+  position: absolute
   flex-flow: column nowrap
-  justify-content: left
+  justify-content: space-between
+  &--preview
+    flex-flow: row nowrap
   &__link
     text-decoration: none
   &--in-list
     border-left: 2px dashed gray
+    width: 100%
     flex-flow: row nowrap
+    justify-content: space-between
   &__content
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
     height: auto
     margin-bottom: 3vh
-    &--preview
-      width: $content-preview-width
   &__timestamp
     color: gray
     text-align: right
   &__data
-    width: $data-width
     height: auto
     padding: $item-padding
     &--inline
       display: inline-block
 
 .posts__list
+  position: absolute
+  width: 90vw
+  top: $top-offset
   list-style-type: none
-
-.posts__item
-  padding: $default-padding
-  &--row
-    width: 100%
-
 
 .post-form
   &__input
     padding: $item-padding
   &__textarea
     height: 20vh
+
+@media screen and (max-width: 620px)
+  .post
+    flex-flow: column nowrap
+    justify-content: space-around
+
+@media screen and (min-width: 621px)

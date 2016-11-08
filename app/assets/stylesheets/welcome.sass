@@ -10,3 +10,27 @@
   margin: auto
   flex-flow: column nowrap
   justify-content: center
+
+.avatar-image
+  margin: auto
+  background: image-url('me.jpg')
+  background-size: cover
+  width: 10vw
+  height: 10vw
+  border-radius: 50%
+
+@media screen and (max-width: 620px)
+  .avatar-image
+    width: 50vw
+    height: 50vw
+  .welcome__link
+    display: block
+    font-size: 2em
+    margin-top: 5vh
+  .welcome
+    top: 0
+    width: 85vw
+    height: 90vh
+    text-align: left
+    justify-content: left
+    padding: 5vw

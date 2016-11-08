@@ -1,12 +1,13 @@
 .welcome
   h1.welcome__header
     | Hello!
-  .welcome__content This is a personal blog of one tech dude who currently uses Rails
-  .welcome__content ... and React
-  .welcome__content ... and a lot more
+  .avatar-image
+  - age = (Time.now - Time.parse('19.06.1989')).to_i / 1.year
   br
-  = link_to 'SEE POSTS', posts_path, class: 'welcome__link'
+  .welcome__content My name is Bogdan, I'm #{age} and I'm RoR developer from Russia
   br
-  = link_to 'facebook', 'https://facebook.com/bogdan.agafonov'
+  = link_to 'Posts', posts_path, class: 'welcome__link'
   br
-  = link_to 'github', 'https://github.com/bobishh'
+  = link_to 'Facebook', 'https://facebook.com/bogdan.agafonov', class: 'welcome__link'
+  br
+  = link_to 'Github', 'https://github.com/bobishh', class: 'welcome__link'
