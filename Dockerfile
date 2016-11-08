@@ -8,7 +8,6 @@ RUN apk --update --upgrade add $BUILD_PACKAGES $RUBY_PACKAGES $DEV_PACKAGES && \
   gem install -N bundler
 
 ENV APP_HOME /blog
-ENV RAILS_ENV production
 
 RUN mkdir $APP_HOME
 

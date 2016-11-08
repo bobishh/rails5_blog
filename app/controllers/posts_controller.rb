@@ -1,6 +1,10 @@
 # CRUD Posts controller
 class PostsController < ApplicationController
   before_action :require_login, only: [:edit, :new]
+  layout 'application'
+
+  def index
+  end
 
   def new
     form Post::Create
