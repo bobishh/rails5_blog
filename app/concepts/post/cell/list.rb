@@ -22,9 +22,13 @@ class Post < ApplicationRecord
     private
 
     def next_page_button
-      return if posts.blank? || posts.size < params[:page].to_i * DEFAULT_PER_PAGE
+      return if posts.blank? || posts.size < page_number * DEFAULT_PER_PAGE
       link_to 'next page', posts_path(page: page(params) + 1),
               class: 'button posts__next'
+    end
+
+    def page_number
+      params[:page].to_i > 0 ? params[:page].to_i : 1
     end
 
     def posts
