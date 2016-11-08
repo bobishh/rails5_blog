@@ -4,6 +4,9 @@
 @import 'responsive'
 @import 'menu'
 
+html
+  color: gray
+
 .aboutme__photo
   margin-right: 2em
   background-image: url("https://scontent-arn2-1.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/11217183_10207352844358245_7040585877676604693_n.jpg?oh=d3ed2442d86f026a0212ab1cba48d059&oe=5669547E")
@@ -18,6 +21,10 @@
   transition: all 0.4s
   &:hover
     animation: none
+
+ul, li
+  left: 0
+  top: 0
 
 html, body, input, textarea, button, code
   color: #444
@@ -49,7 +56,8 @@ button.button.logout-button
 a
   text-decoration: none
   font-weight: normal
-  color: gray
+  color: black
+  animation: none
   &:hover
     animation: blink 7s 0s infinite
   &.active

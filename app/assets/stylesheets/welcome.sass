@@ -1,13 +1,13 @@
 @import 'mixins'
 
 .welcome
-  @include input-border(2px, gray)
   width: 80vw
   padding: 5vw
   position: relative
   top: 20vh
   text-align: center
   margin: auto
+  display: flex
   flex-flow: column nowrap
   justify-content: center
 
@@ -18,6 +18,10 @@
   width: 10vw
   height: 10vw
   border-radius: 50%
+  animation: crazifier 1s 0s infinite ease-in-out
+  transition: all 0.4s
+  &:hover
+    animation: none
 
 @media screen and (max-width: 620px)
   .avatar-image

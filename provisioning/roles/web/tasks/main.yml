@@ -1,3 +1,6 @@
+- name: Docker build web image
+  shell: 'cd {{ project_home }} && git reset --hard' 
+
 - name: Git pull repo
   git:
     repo: '{{ project_repo }}'
