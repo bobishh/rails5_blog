@@ -11,6 +11,9 @@ $content-preview-width: 30vw
   justify-content: space-between
   &--preview
     flex-flow: row nowrap
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
   &__link
     text-decoration: none
   &--in-list
@@ -20,7 +23,6 @@ $content-preview-width: 30vw
     justify-content: space-between
   &__content
     text-overflow: ellipsis
-    white-space: nowrap
     overflow: hidden
     height: auto
     margin-bottom: 3vh
