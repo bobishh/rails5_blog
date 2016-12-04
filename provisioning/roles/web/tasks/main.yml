@@ -11,6 +11,9 @@
 - name: Docker build web image
   shell: 'cd {{ project_home }} && docker build .' 
 
+- name: Docker compose web bundle install
+  shell: 'cd {{ project_home }} && docker-compose run web bundle install' 
+
 - name: Docker compose up assets precompile
   shell: 'cd {{ project_home }} && docker-compose run web bundle exec rails assets:precompile'
 

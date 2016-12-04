@@ -1,4 +1,2 @@
-- name: Provision web servers
-  hosts: web
-  roles:
-    - web
+- include: web.yml
+- include: statistics.yml

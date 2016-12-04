@@ -19,7 +19,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'slim-rails'
 gem 'react-rails'
 gem 'redcarpet'
-gem 'sprockets-coffee-react'
+gem 'sprockets-coffee-jsx'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

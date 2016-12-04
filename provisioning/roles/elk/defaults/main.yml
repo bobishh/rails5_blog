@@ -1,0 +1,8 @@
+---
+elk_repo: https://github.com/deviantony/docker-elk
+elk_docker_images:
+  - library/elasticsearch
+  - library/kibana
+  - library/logstash
+user: bovoid
+elk_home: '/home/{{ user }}/projects/elk'

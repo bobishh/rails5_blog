@@ -1,0 +1,25 @@
+---
+- name: Git reset --hard in '{{ project_home }}'
+  shell: 'cd {{ project_home }} && git reset --hard' 
+
+- name: Clone elk repo
+  git:
+    repo: '{{ elk_repo }}'
+    update: yes
+    version: master
+    dest: '{{ elk_home }}'
+
+- name: Ensure basic docker-images presents
+  docker_image:
+    name: '{{ item }}'
+    state: present
+    with_items: '{{ elk_docker_images }}'
+
+- name: Docker compose up (restart)
+  shell: 'cd {{ elk_home }} && docker-compose up --force-recreate -d'
+
+- name: Check if logstash listens on port
+  wait_for: host=0.0.0.0 port=5000 delay=3
+
+- name: Check if kibana listens on port
+  wait_for: host=0.0.0.0 port=5061 delay=3
