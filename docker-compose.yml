@@ -19,7 +19,7 @@ services:
       - public
 
   db:
-    image: kiasaki/alpine-postgres
+    image: kiasaki/alpine-postgres:9.5
     environment:
       POSTGRES_PASSWORD: 'postgres'
     volumes_from:
