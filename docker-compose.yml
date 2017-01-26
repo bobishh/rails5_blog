@@ -15,7 +15,6 @@ services:
       - '4242:4242'
     links:
       - db
-      - bundle
       - public
 
   db:
@@ -24,13 +23,6 @@ services:
       POSTGRES_PASSWORD: 'postgres'
     volumes_from:
       - db_data
-
-# data containers
-  bundle:
-    image: busybox
-    command: echo 'Serving bundle'
-    volumes:
-      - /bundle
 
   public:
     image: busybox
