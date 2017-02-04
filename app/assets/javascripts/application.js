@@ -17,3 +17,11 @@
 //= require react_ujs
 //= require_tree ./components
 //= require components
+
+$(document).ready(function() {
+  document.querySelectorAll('code')
+    .forEach(function(block) {
+         hljs.highlightBlock(block);
+       });
+  }
+);
